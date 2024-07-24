@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import HeaderNav from "./(frontend)/_component/header";
+import { AOSInit } from "./(frontend)/_component/aos";
+import { Locomotive } from "./(frontend)/_component/locomotive";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,13 +13,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+
+
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="overflow-x-hidden scroll-smooth" >
+      <AOSInit />
+      <body className='relative bg-[#FDFDFD]' >
+      <HeaderNav/>
+        {children}
+      </body>
+      {/* <Locomotive/> */}
     </html>
   );
 }
