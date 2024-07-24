@@ -39,7 +39,7 @@ export default function ProductTab() {
 	});
 
 	return (
-		<div className="">
+		<div className="" data-aos="fade-up">
 			<div
 				className="flex justify-between items-center cursor-pointer"
 				ref={titleTab}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ServicesBtn from "./(frontend)/_component/services";
 import ProductTab from "./(frontend)/_component/produk";
+import CekMerk from "./(frontend)/_component/cek";
 // import React, { useEffect } from "react";
 
 export default function HalamanHome() {
@@ -196,55 +197,7 @@ export default function HalamanHome() {
 				</section>
 
 				<section className=" relative w-full h-screen items-center ">
-					<div className="w-full h-[20vh] px-[10vw]">
-						<div className="w-full flex justify-center items-center mx-auto ">
-							<button className="w-[50vw] px-[12vw] py-[6vh] border-b-[0.2vw] border-b-gray hover:border-b-primary transition-all mont text-[1.3vw] font-semibold opacity-70">
-								CEK MERK
-							</button>
-							{/* <button className="border-b-gray">Icon</button> */}
-							<button className=" w-[50vw] px-[12vw] py-[6vh] border-b-[0.2vw] border-b-gray hover:border-b-primary transition-all mont text-[1.3vw] font-semibold opacity-70">
-								CEK KELAS MERK
-							</button>
-						</div>
-					</div>
-					<div className="w-full h-[70vh]">
-						<div className="bg-[url('/cekmerk.png')] bg-contain bg-no-repeat bg-[center_right_-16vw] absolute w-full h-[80vh] mb-[-4vw]"></div>
-						<div className=" absolute flex z-20 w-[50vw] h-[80vh] pl-[10vw] pr-[2vw]">
-							<div className="m-auto pr-[7vw] ">
-								<div className="">
-									<h2 className=" text-[3vw] leading-[8.5vh] text-black">
-										<span className="text-primary font-bold">
-											Cek Ketersediaan {""}
-										</span>
-										Merk Anda
-									</h2>
-									<p className="text-black text-[1.2vw] leading-[4.5vh] mt-[3vh] mb-[3vh]">
-										Membantu Anda melakukan cek merek dengan mudah, sehingga
-										Anda dapat terhindar dari penolakan pendaftaran merek
-									</p>
-									<div className="flex justify-between items-center">
-										<input
-											type="text"
-											name="merk"
-											id="merk"
-											className="w-[80%] border border-b-2 border-primary py-[2vh] px-[2vw] text-[1vw]"
-											placeholder="Search your brand"
-										/>
-										<button className="py-[1.7vh] px-[1.2vw] bg-primary">
-											<Image
-												src="/search.png"
-												width={25}
-												height={25}
-												alt="Search Your Brand Name"
-												className="w-[1.7vw]"
-											/>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div></div>
-						</div>
-					</div>
+					<CekMerk/>
 				</section>
 
 				<section className="bg-[#EBEEF5]">
@@ -265,7 +218,7 @@ export default function HalamanHome() {
 							</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
 							<div>
 								<Image
 									src="/paten.png"
@@ -281,7 +234,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
 							<div>
 								<Image
 									src="/industri.png"
@@ -297,7 +250,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
 							<div>
 								<Image
 									src="/cipta.png"
@@ -313,7 +266,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
 							<div>
 								<Image
 									src="/dagang.png"
@@ -329,7 +282,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
 							<div>
 								<Image
 									src="/dtlst.png"
@@ -405,10 +358,11 @@ export default function HalamanHome() {
 				</section>
 
 				<section className="w-full px-[24vw] py-[6.3vh] text-center bg-[url('/bgcta.png')] bg-cover">
-					<h2 className="text-[4vw] text-[#5DBDEB] font-semibold mont">Kekayaan Intelektual</h2>
-					<p className="text-[1.8vw] text-white mt-[2vh] font-light mont">merupakan aset yang sangatlah penting, namun sering diabaikan dan diremehkan.</p>
-					<p className="text-white text-[1.4vw] mt-[2vh] font-light mont">Konsultasikan kekayaan intelektual Anda!</p>
+					<h2 className="text-[4vw] text-[#5DBDEB] font-semibold mont" data-aos="zoom-in-up">Kekayaan Intelektual</h2>
+					<p className="text-[1.8vw] text-white mt-[2vh] font-light mont" data-aos="zoom-in-up">merupakan aset yang sangatlah penting, namun sering diabaikan dan diremehkan.</p>
+					<p className="text-white text-[1.4vw] mt-[2vh] font-light mont" data-aos="zoom-in-up">Konsultasikan kekayaan intelektual Anda!</p>
 					<a
+					data-aos="zoom-in-up"
 								href=""
 								className="flex gap-[1vw] mt-[4vh] w-fit m-auto bg-[#D9D9D9] px-[2vw] py-[2vh] bg-opacity-40 border hover:bg-opacity-60 transition-all  border-white"
 							>
@@ -430,7 +384,7 @@ export default function HalamanHome() {
 				<footer className="w-full bg-gray ">
 					<div className="px-[10vw] py-[8vh] grid grid-cols-5 ">
 						<div className="col-span-2">
-
+							
 						</div>
 					</div>
 				</footer>
