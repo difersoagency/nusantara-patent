@@ -75,7 +75,7 @@ export default function HalamanHome() {
 										NUSANTARA PATENT
 									</h2>
 									<p
-										className="text-black text-[1.2vw] leading-[6vh] mt-[1vh] mb-[6vh] pl-[22vw]"
+										className="text-black text-[1.2vw] leading-[6vh] mt-[1vh] mb-[8vh] pl-[22vw]"
 										data-aos="fade-left"
 									>
 										Nusantara Patent memberikan pelayanan hukum berupa
@@ -88,10 +88,10 @@ export default function HalamanHome() {
 									</p>
 									<a
 										href=""
-										className="uppercase px-[4vw] py-[3vh] border border-primary text-[1.2vw]"
+										className="uppercase px-[4vw] py-[3vh] border border-primary text-[1vw]"
 										data-aos="fade-left"
 									>
-										Read More
+										Lebih Lanjut
 									</a>
 								</div>
 							</div>
@@ -190,7 +190,7 @@ export default function HalamanHome() {
 					</div>
 
 					<div
-						className="bg-[url('/wayang.png')] bg-no-repeat bg-right w-full h-full bg-contain absolute z-0"
+						className="bg-[url('/wayang.png')] bg-no-repeat bg-right w-full h-full bg-contain absolute bg-opacity-5 z-0"
 						data-aos="fade-left"
 					></div>
 				</section>
@@ -347,8 +347,8 @@ export default function HalamanHome() {
 					</div>
 				</section>
 
-				<section>
-					<div className="px-[10vw] h-screen">
+				<section className="h-screen">
+					<div className="px-[10vw] h-screen absolute w-full">
 						<div className=" w-[50vw] py-[6vh] bg-cover ">
 							<h2 className="text-black text-[4vw]">
 								<span className="font-bold">Perluas </span> HKI Anda
@@ -358,7 +358,85 @@ export default function HalamanHome() {
 							</p>
 						</div>
 					</div>
+					<div>
+						<Image
+						src='/awan2.png'
+						width={1000}
+						height={30}
+						alt="AWan"
+						className="w-full h-auto "
+						/>
+					</div>
 				</section>
+
+				<section className="bg-[#EEF1F7] w-full py-[7vh] px-[10vw]">
+					<div className=" flex items-center justify-between">
+						<div>
+							<h2 className="text-black text-[3vw]">
+								<span className="font-bold">Anggota </span> dari
+							</h2>
+						</div>
+						<div className="flex items-center justify-between w-[45vw]">
+							<Image
+							src='/inta.png'
+							width={1000}
+							height={30}
+							alt="AWan"
+							className="w-[12vw] h-auto "
+							/>
+
+							<Image
+							src='/akhki.png'
+							width={1000}
+							height={30}
+							alt="AWan"
+							className="w-[12vw] h-auto "
+							/>
+
+							<Image
+							src='/aippi.png'
+							width={1000}
+							height={30}
+							alt="AWan"
+							className="w-[12vw] h-auto "
+							/>
+						</div>
+					</div>
+				</section>
+
+				<section className="w-full px-[24vw] py-[6.3vh] text-center bg-[url('/bgcta.png')] bg-cover">
+					<h2 className="text-[4vw] text-[#5DBDEB] font-semibold mont">Kekayaan Intelektual</h2>
+					<p className="text-[1.8vw] text-white mt-[2vh] font-light mont">merupakan aset yang sangatlah penting, namun sering diabaikan dan diremehkan.</p>
+					<p className="text-white text-[1.4vw] mt-[2vh] font-light mont">Konsultasikan kekayaan intelektual Anda!</p>
+					<a
+								href=""
+								className="flex gap-[1vw] mt-[4vh] w-fit m-auto bg-[#D9D9D9] px-[2vw] py-[2vh] bg-opacity-40 border hover:bg-opacity-60 transition-all  border-white"
+							>
+
+								<Image
+								src='/wa.png'
+								width={20}
+								height={20}
+								alt="WA IP Attorney di Indonesia"
+								className="w-[1.3vw] h-auto object-contain"
+								/>
+
+								<span className="uppercase mont text-[1.2vw] text-white">
+									+6282  2622  63636
+								</span>
+							</a>
+				</section>
+
+				<footer className="w-full bg-gray ">
+					<div className="px-[10vw] py-[8vh] grid grid-cols-5 ">
+						<div className="col-span-2">
+
+						</div>
+					</div>
+				</footer>
+				<div className="bg-[#C4C8D1] text-center py-[2.3vh]">
+					<p className="text-[1vw]">Copyright © 2024 Nusantara Patent Intellectual Property Attonery. All rights reserved</p>
+				</div>
 			</div>
 		</>
 	);
