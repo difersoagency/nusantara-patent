@@ -37,7 +37,7 @@ export default function CekMerk() {
 					</div>
 					<div className="w-full h-[70vh]" data-aos="fade-in">
 						<div className={`${isKelas ? 'bg-[url("/cekkelas.png")] bg-[center_left]' : 'bg-[url("/cekmerk.png")] bg-[center_right_-16vw]'} bg-contain bg-no-repeat  absolute w-full h-[80vh] mb-[-4vw]`}></div>
-						<div className={` absolute flex z-20 w-[50vw] h-[80vh] pl-[10vw] pr-[2vw] ${isKelas ? 'right-0 text-right' : 'left-0 text-left'}`}>
+						<div className={` absolute flex z-20 w-[50vw] h-[80vh] pl-[10vw] pr-[2vw] ${isKelas ? 'right-0' : 'left-0'}`}>
 							<div className="m-auto pr-[7vw] ">
 								<div className="">
 									<h2 className=" text-[3vw] leading-[8.5vh] text-black">
@@ -57,15 +57,15 @@ export default function CekMerk() {
 											name="merk"
 											id="merk"
 											className="w-[80%] border border-b-2 border-primary py-[2vh] px-[2vw] text-[1vw]"
-											placeholder="Search your brand"
+											placeholder={`${isKelas ? 'Masukan Kata Kunci Usaha Anda' : 'Tulis Nama Merek Anda'}`}
 										/>
-										<button className="py-[1.7vh] px-[1.2vw] bg-primary">
+										<button className="py-[1.7vh] px-[1vw] bg-primary">
 											<Image
 												src="/search.png"
-												width={25}
-												height={25}
+												width={200}
+												height={200}
 												alt="Search Your Brand Name"
-												className="w-[1.7vw]"
+												className="w-[1.5vw] h-[1.7vw] object-contain"
 											/>
 										</button>
 									</div>

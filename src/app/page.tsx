@@ -325,7 +325,7 @@ export default function HalamanHome() {
 				<section className="bg-[#EEF1F7] w-full py-[7vh] px-[10vw]">
 					<div className=" flex items-center justify-between">
 						<div>
-							<h2 className="text-black text-[3vw]">
+							<h2 className="text-black text-[3vw]" data-aos="fade-right">
 								<span className="font-bold">Anggota </span> dari
 							</h2>
 						</div>
@@ -336,6 +336,7 @@ export default function HalamanHome() {
 							height={30}
 							alt="AWan"
 							className="w-[12vw] h-auto "
+							data-aos="flip-right"
 							/>
 
 							<Image
@@ -344,6 +345,7 @@ export default function HalamanHome() {
 							height={30}
 							alt="AWan"
 							className="w-[12vw] h-auto "
+							data-aos="flip-right"
 							/>
 
 							<Image
@@ -352,6 +354,7 @@ export default function HalamanHome() {
 							height={30}
 							alt="AWan"
 							className="w-[12vw] h-auto "
+							data-aos="flip-right"
 							/>
 						</div>
 					</div>
