@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 
-export default function ProductTab() {
+export default function ProductRightTab() {
 	const descTab = useRef<HTMLDivElement | null>(null);
 	const titleTab = useRef<HTMLDivElement | null>(null);
 	const [isActive, setActive] = useState(false);
@@ -60,16 +60,6 @@ export default function ProductTab() {
 			</div>
 			<div className={`h-0 opacity-0 ${isActive ? "animate-tab-active" : "animate-tab-disable"}`} ref={descTab} data-aos='fade-in'>
 				<div className="grid grid-cols-2 py-[6vh] ">
-					<div>
-						<Image
-							src="/wi.png"
-							width={600}
-							height={221}
-							alt="IP Attorney"
-							className="w-[33vw]"
-						/>
-					</div>
-
 					<div className="">
 						<p className="text-[1.2vw] leading-[5vh]">
 							<span className="font-bold">Sebuah tanda</span> yang mampu
@@ -102,6 +92,16 @@ export default function ProductTab() {
 								<p className="text-[1vw]">12 - 18 Bulan</p>
 							</div>
 						</div>
+					</div>
+
+                    <div>
+						<Image
+							src="/wi.png"
+							width={600}
+							height={221}
+							alt="IP Attorney"
+							className="w-[33vw]"
+						/>
 					</div>
 				</div>
 				<div className="mx-auto text-center mb-[5vh]">

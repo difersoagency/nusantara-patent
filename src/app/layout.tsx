@@ -21,6 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden scroll-smooth" >
+      
       <AOSInit />
       <body className='relative bg-[#FDFDFD]' >
       <HeaderNav/>

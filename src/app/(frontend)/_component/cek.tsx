@@ -36,7 +36,7 @@ export default function CekMerk() {
 						</div>
 					</div>
 					<div className="w-full h-[70vh]" data-aos="fade-in">
-						<div className={`${isKelas ? 'bg-[url("/cekkelas.png")] bg-[center_left]' : 'bg-[url("/cekmerk.png")] bg-[center_right_-16vw]'} bg-contain bg-no-repeat  absolute w-full h-[80vh] mb-[-4vw]`}></div>
+						<div className={`${isKelas ? 'bg-[url("/cekkelas.png")] bg-[center_left] animate-change' : 'bg-[url("/cekmerk.png")] bg-[center_right_-16vw] animate-revert'} bg-contain bg-no-repeat  absolute w-full h-[80vh] mb-[-4vw]`}></div>
 						<div className={` absolute flex z-20 w-[50vw] h-[80vh] pl-[10vw] pr-[2vw] ${isKelas ? 'right-0' : 'left-0'}`}>
 							<div className="m-auto pr-[7vw] ">
 								<div className="">

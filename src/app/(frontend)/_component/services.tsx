@@ -54,7 +54,7 @@ export default function ServicesBtn({
 
     })    
 	return (
-		<button ref={buttonRef} className="w-fit" data-aos="zoom-in">
+		<button ref={buttonRef} className="w-fit" >
 			<div className="w-[23vw]">
 				<div className="grid grid-cols-3 border-b-[0.4vh] border-b-gray hover:border-b-primary transition-all items-center pb-[4vh]">
 					<div className="">

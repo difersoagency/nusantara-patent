@@ -2,6 +2,8 @@ import Image from "next/image";
 import ServicesBtn from "./(frontend)/_component/services";
 import ProductTab from "./(frontend)/_component/produk";
 import CekMerk from "./(frontend)/_component/cek";
+import Footer from "./(frontend)/_component/footer";
+import ProductRightTab from "./(frontend)/_component/product_r";
 // import React, { useEffect } from "react";
 
 export default function HalamanHome() {
@@ -31,7 +33,7 @@ export default function HalamanHome() {
 								href=""
 								className="flex gap-[1vw] w-fit m-auto bg-[#D9D9D9] px-[2vw] py-[2vh] bg-opacity-40 border hover:bg-opacity-60 transition-all  border-white"
 							>
-								<span className="uppercase mont text-[1.2vw] text-white">
+								<span className="uppercase mont text-[1.2vw] text-white tracking-wider">
 									Layanan Kami
 								</span>
 							</a>
@@ -63,22 +65,13 @@ export default function HalamanHome() {
 							<div></div>
 							<div className="m-auto pr-[10vw] text-right col-span-2">
 								<div className="">
-									<span
-										className="text-right uppercase text-[2vw] text-black font-semibold mont"
-										data-aos="zoom-in"
-									>
+									<span className="text-right uppercase text-[2vw] text-black font-semibold mont">
 										Perkenalkan Kami
 									</span>
-									<h2
-										className="font-semibold text-[4.2vw] text-primary"
-										data-aos="fade-left"
-									>
+									<h2 className="font-semibold text-[4.2vw] text-primary">
 										NUSANTARA PATENT
 									</h2>
-									<p
-										className="text-black text-[1.2vw] leading-[6vh] mt-[1vh] mb-[8vh] pl-[22vw]"
-										data-aos="fade-left"
-									>
+									<p className="text-black text-[1.2vw] leading-[6vh] mt-[1vh] mb-[8vh] pl-[22vw]">
 										Nusantara Patent memberikan pelayanan hukum berupa
 										pendaftaran, perpanjangan, pengalihan hak, perjanjian
 										lisensi, seminar, training terkait Hak Kekayaan Intelektual;
@@ -89,8 +82,7 @@ export default function HalamanHome() {
 									</p>
 									<a
 										href=""
-										className="uppercase px-[4vw] py-[3vh] border border-primary text-[1vw]"
-										data-aos="fade-left"
+										className="uppercase px-[4vw] py-[3vh] border border-primary text-[1vw] tracking-wider hover:bg-primary hover:text-white transition-all mont"
 									>
 										Lebih Lanjut
 									</a>
@@ -98,10 +90,7 @@ export default function HalamanHome() {
 							</div>
 						</div>
 						<div className="bg-[url('/sect2-h.webp')] bg-contain bg-no-repeat bg-left absolute w-full h-full mb-[-4vw]"></div>
-						<div
-							className="bg-[url('/below2.png')]  bg-no-repeat bg-[center_bottom_-3vw] bg-[length:115vw] absolute w-full h-full"
-							data-aos="fade-in"
-						></div>
+						<div className="bg-[url('/below2.png')]  bg-no-repeat bg-[center_bottom_-3vw] bg-[length:115vw] absolute w-full h-full"></div>
 					</div>
 				</section>
 
@@ -126,56 +115,56 @@ export default function HalamanHome() {
 
 							<ServicesBtn
 								name="Assignment"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Pengalihan Hak (jual/beli, habis, waris, wakaf, wasiat)"
 								url="/"
 								image="/ip-assign.png"
 							/>
 
 							<ServicesBtn
 								name="Renewal"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Perpanjangan Merek"
 								url="/"
 								image="/ip-renew.png"
 							/>
 
 							<ServicesBtn
 								name="Monitoring"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Pengawasan dan Perlindungan HKI"
 								url="/"
 								image="/ip-mon.png"
 							/>
 
 							<ServicesBtn
 								name="Licensing"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Pencatatan Lisensi HKI"
 								url="/"
 								image="/ip-lic.png"
 							/>
 
 							<ServicesBtn
 								name="Search"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Penelusuran & Analisis peluang pendaftaran HKI"
 								url="/"
 								image="/ip-search.png"
 							/>
 
 							<ServicesBtn
 								name="Enforcement"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Gugatan perdata, pidana, somasi, mediasi"
 								url="/"
 								image="/ip-enfc.png"
 							/>
 
 							<ServicesBtn
 								name="Audit"
-								desc="Pendaftaran HKI dari permohonan hingga sertifikat"
+								desc="Complete strategic review terhadap HKI yang dimiliki"
 								url="/"
 								image="/ip-audit.png"
 							/>
 
-							<a href="" className="w-[23vw]" data-aos="zoom-in">
+							<a href="" className="w-[23vw]">
 								<div className="flex justify-between items-center">
-									<p className="text-black text-[1.5vw] italic">
+									<p className="text-black text-[1.5vw] italic hover:text-primary transition-all">
 										“Let us <span className="font-bold"> do the work.</span>”
 									</p>
 									<Image
@@ -190,14 +179,11 @@ export default function HalamanHome() {
 						</div>
 					</div>
 
-					<div
-						className="bg-[url('/wayang.png')] bg-no-repeat bg-right w-full h-full bg-contain absolute bg-opacity-5 z-0"
-						data-aos="fade-left"
-					></div>
+					<div className="bg-[url('/wayang.png')] bg-no-repeat bg-right w-full h-full bg-contain absolute bg-opacity-5 z-0"></div>
 				</section>
 
 				<section className=" relative w-full h-screen items-center ">
-					<CekMerk/>
+					<CekMerk />
 				</section>
 
 				<section className="bg-[#EBEEF5]">
@@ -207,34 +193,25 @@ export default function HalamanHome() {
 								<span className="font-bold">Produk</span> HKI
 							</h2>
 							<p className="text-[1.2vw] text-black">
-								Ragam  jenis hak kekayaan intelektual.
+								Ragam jenis hak kekayaan intelektual.
 							</p>
 						</div>
 					</div>
 					<div className="w-full px-[10vw]">
 						<div className="border-t-2 border-t-primary py-[3vh]   mx-auto ">
 							<div>
-								<ProductTab/>
+								<ProductTab />
 							</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
+						<div className="border-t-2 border-t-primary py-[3vh]   mx-auto ">
 							<div>
-								<Image
-									src="/paten.png"
-									width={48}
-									height={49}
-									alt="Merk"
-									className="w-[2.4vw]"
-								/>
+								<ProductRightTab/>
 							</div>
-							<div>
-								<h3 className="text-[2.4vw]">Paten</h3>
-							</div>
-							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
+						
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/industri.png"
@@ -250,7 +227,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/cipta.png"
@@ -266,7 +243,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/dagang.png"
@@ -282,7 +259,7 @@ export default function HalamanHome() {
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto" data-aos="fade-up">
+						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/dtlst.png"
@@ -307,17 +284,17 @@ export default function HalamanHome() {
 								<span className="font-bold">Perluas </span> HKI Anda
 							</h2>
 							<p className="text-[1.2vw] text-black">
-							Mulai dari Local menuju Nasional hingga Internasional.
+								Mulai dari Local menuju Nasional hingga Internasional.
 							</p>
 						</div>
 					</div>
 					<div>
 						<Image
-						src='/awan2.png'
-						width={1000}
-						height={30}
-						alt="AWan"
-						className="w-full h-auto "
+							src="/awan2.png"
+							width={1000}
+							height={30}
+							alt="AWan"
+							className="w-full h-auto "
 						/>
 					</div>
 				</section>
@@ -325,75 +302,68 @@ export default function HalamanHome() {
 				<section className="bg-[#EEF1F7] w-full py-[7vh] px-[10vw]">
 					<div className=" flex items-center justify-between">
 						<div>
-							<h2 className="text-black text-[3vw]" data-aos="fade-right">
+							<h2 className="text-black text-[3vw]">
 								<span className="font-bold">Anggota </span> dari
 							</h2>
 						</div>
 						<div className="flex items-center justify-between w-[45vw]">
 							<Image
-							src='/inta.png'
-							width={1000}
-							height={30}
-							alt="AWan"
-							className="w-[12vw] h-auto "
-							data-aos="flip-right"
+								src="/inta.png"
+								width={1000}
+								height={30}
+								alt="AWan"
+								className="w-[12vw] h-auto "
 							/>
 
 							<Image
-							src='/akhki.png'
-							width={1000}
-							height={30}
-							alt="AWan"
-							className="w-[12vw] h-auto "
-							data-aos="flip-right"
+								src="/akhki.png"
+								width={1000}
+								height={30}
+								alt="AWan"
+								className="w-[12vw] h-auto "
 							/>
 
 							<Image
-							src='/aippi.png'
-							width={1000}
-							height={30}
-							alt="AWan"
-							className="w-[12vw] h-auto "
-							data-aos="flip-right"
+								src="/aippi.png"
+								width={1000}
+								height={30}
+								alt="AWan"
+								className="w-[12vw] h-auto "
 							/>
 						</div>
 					</div>
 				</section>
 
-				<section className="w-full px-[24vw] py-[6.3vh] text-center bg-[url('/bgcta.png')] bg-cover">
-					<h2 className="text-[4vw] text-[#5DBDEB] font-semibold mont" data-aos="zoom-in-up">Kekayaan Intelektual</h2>
-					<p className="text-[1.8vw] text-white mt-[2vh] font-light mont" data-aos="zoom-in-up">merupakan aset yang sangatlah penting, namun sering diabaikan dan diremehkan.</p>
-					<p className="text-white text-[1.4vw] mt-[2vh] font-light mont" data-aos="zoom-in-up">Konsultasikan kekayaan intelektual Anda!</p>
+				<section className="w-full px-[24vw] py-[8.3vh] text-center bg-[url('/bgcta.png')] bg-cover">
+					<h2 className="text-[4vw] text-[#5DBDEB] font-semibold mont">
+						Kekayaan Intelektual
+					</h2>
+					<p className="text-[1.8vw] text-white mt-[2vh] font-light mont">
+						merupakan aset yang sangatlah penting, namun sering diabaikan dan
+						diremehkan.
+					</p>
+					<p className="text-white text-[1.4vw] mt-[2vh] font-light mont">
+						Konsultasikan kekayaan intelektual Anda!
+					</p>
 					<a
-					data-aos="zoom-in-up"
-								href=""
-								className="flex gap-[1vw] mt-[4vh] w-fit m-auto bg-[#D9D9D9] px-[2vw] py-[2vh] bg-opacity-40 border hover:bg-opacity-60 transition-all  border-white"
-							>
+						href=""
+						className="flex gap-[1vw] mt-[4vh] w-fit m-auto bg-[#D9D9D9] px-[2vw] py-[2vh] bg-opacity-40 border hover:bg-opacity-60 transition-all  border-white"
+					>
+						<Image
+							src="/wa.png"
+							width={20}
+							height={20}
+							alt="WA IP Attorney di Indonesia"
+							className="w-[1.3vw] h-auto object-contain"
+						/>
 
-								<Image
-								src='/wa.png'
-								width={20}
-								height={20}
-								alt="WA IP Attorney di Indonesia"
-								className="w-[1.3vw] h-auto object-contain"
-								/>
-
-								<span className="uppercase mont text-[1.2vw] text-white">
-									+6282  2622  63636
-								</span>
-							</a>
+						<span className="uppercase mont text-[1.2vw] text-white tracking-wider">
+							+6282 2622 63636
+						</span>
+					</a>
 				</section>
 
-				<footer className="w-full bg-gray ">
-					<div className="px-[10vw] py-[8vh] grid grid-cols-5 ">
-						<div className="col-span-2">
-							
-						</div>
-					</div>
-				</footer>
-				<div className="bg-[#C4C8D1] text-center py-[2.3vh]">
-					<p className="text-[1vw]">Copyright © 2024 Nusantara Patent Intellectual Property Attonery. All rights reserved</p>
-				</div>
+				<Footer/>
 			</div>
 		</>
 	);

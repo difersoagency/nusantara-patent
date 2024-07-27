@@ -64,6 +64,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "running": {
+          from: { backgroundPosition: 'center right -18vw' },
+          to: {  backgroundPosition: 'center left'},
+
+        },
         "tapDown": {
           // from: { gridRow: 'span 2 / span 2' },
           '100%': { opacity:'1', height: '46vh'},
@@ -94,6 +99,19 @@ const config = {
         "float2": {
           '50%': { transform: 'translate(-5px, 20px)'},
         },
+        "float3": {
+          '0%' : { backgroundPositionX: '100%'},
+          '100%': { backgroundPositionX: '-50%'},
+        },
+        "change": {
+          '0%' : { opacity: '0'},
+          '100%': { opacity: '1'},
+        },
+        "revert": {
+          '0%' : { opacity: '1'},
+          '50%' : { opacity: '0'},
+          '100%': {opacity: '1'},
+        },
       },
       animation: {
         "float-l": "float 5s ease-in-out infinite",
@@ -102,6 +120,12 @@ const config = {
         "service-size-down": "sizeDown 0.5s ease-in-out forwards",
         "tab-active": "tapDown 0.5s ease-in-out forwards",
         "tab-disable": "tapUp 0.5s ease-in-out forwards",
+        "running": "float3 12s linear infinite",
+        "change": "change 0.5s ease-in-out forwards",
+        "revert": "revert 0.5s ease-in-out forwards",
+
+
+
 
 
         // "accordion-up": "accordion-up 0.2s ease-out",
