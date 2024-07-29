@@ -71,11 +71,11 @@ const config = {
         },
         "tapDown": {
           // from: { gridRow: 'span 2 / span 2' },
-          '100%': { opacity:'1', height: '46vh'},
+          '100%': { opacity:'1', height: '58vh'},
 
         },
         "tapUp": {
-          from: { opacity:'1', height: '46vh'},
+          from: { opacity:'1', height: '58vh'},
           to: { opacity:'0', height: '0vh'},
 
         },
@@ -118,8 +118,8 @@ const config = {
         "float-r": "float2 6s ease-in-out infinite",
         "service-size": "sizeUp 0.5s ease-in-out forwards",
         "service-size-down": "sizeDown 0.5s ease-in-out forwards",
-        "tab-active": "tapDown 0.5s ease-in-out forwards",
-        "tab-disable": "tapUp 0.5s ease-in-out forwards",
+        "tab-active": "tapDown 0.2s ease-in-out forwards",
+        "tab-disable": "tapUp 0.2s ease-in-out forwards",
         "running": "float3 12s linear infinite",
         "change": "change 0.5s ease-in-out forwards",
         "revert": "revert 0.5s ease-in-out forwards",

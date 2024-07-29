@@ -196,19 +196,81 @@ export default function HalamanHome() {
 								Ragam jenis hak kekayaan intelektual.
 							</p>
 						</div>
+
+						<div className="flex justify-between items-center pr-[14vw]">
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/merk.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[2vw]"
+								/>
+							</div>
+
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/paten.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[2vw]"
+								/>
+							</div>
+
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/industri.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[2vw]"
+								/>
+							</div>
+
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/merk.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[2vw]"
+								/>
+							</div>
+
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/dagang.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[1.7vw]"
+								/>
+							</div>
+
+							<div className="p-[1vw] border border-[#3D82C4] hover:bg-[#172E4E] hover:border-[#172E4E] transition-all">
+								<Image
+								src='/dtlst.png'
+								width={1000}
+								height={1000}
+								alt="Produk Nusantara Patent" 
+								className="w-[2vw]"
+								/>
+							</div>
+						</div>
 					</div>
 					<div className="w-full px-[10vw]">
-						<div className="border-t-2 border-t-primary py-[3vh]   mx-auto ">
+					
 							<div>
 								<ProductTab />
 							</div>
-						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh]   mx-auto ">
+
+					
 							<div>
 								<ProductRightTab/>
 							</div>
-						</div>
+
 
 						
 						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
@@ -286,6 +348,41 @@ export default function HalamanHome() {
 							<p className="text-[1.2vw] text-black">
 								Mulai dari Local menuju Nasional hingga Internasional.
 							</p>
+						</div>
+						<div className="flex mt-[15vh] mx-auto">
+							<div className="border-x-[0.2vw] border-x-primary h-[45vh] pl-[2vh] pr-[6vh] text-primary flex items-center">
+								<p className="[writing-mode:vertical-lr] m-auto text-[1.4vw] "><span className="font-bold">Lokal </span> ke <span className="font-bold"> Nasional</span></p>
+
+								<Image
+								src='/peta.png'
+								width={740}
+								height={271}
+								alt="HKI Local ke Nasional"
+								className="w-[50vw] ml-[4vw]"
+								/>
+							</div>
+							<div className="border-r-[0.2vw] px-[4vh] border-r-[#D1D1D1] h-[45vh] text-[#D1D1D1] flex items-center">
+								<p className="[writing-mode:vertical-lr] m-auto text-[1.4vw] "><span className="font-bold">Nasional </span> ke <span className="font-bold"> Internasional</span></p>
+
+								{/* <Image
+								src='/peta.png'
+								width={740}
+								height={271}
+								alt="HKI Local ke Nasional"
+								className="w-[50vw] ml-[4vw]"
+								/> */}
+							</div>
+							<div className="border-r-[0.2vw] px-[4vh] border-r-[#D1D1D1] h-[45vh] text-[#D1D1D1] flex items-center">
+								<p className="[writing-mode:vertical-lr] m-auto text-[1.4vw] "><span className="font-bold">Internasional </span> ke <span className="font-bold"> Nasional</span></p>
+
+								{/* <Image
+								src='/peta.png'
+								width={740}
+								height={271}
+								alt="HKI Local ke Nasional"
+								className="w-[50vw] ml-[4vw]"
+								/> */}
+							</div>
 						</div>
 					</div>
 					<div>
