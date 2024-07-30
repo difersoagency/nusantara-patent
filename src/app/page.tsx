@@ -65,7 +65,7 @@ export default function HalamanHome() {
 							<div></div>
 							<div className="m-auto pr-[10vw] text-right col-span-2">
 								<div className="">
-									<span className="text-right uppercase text-[2vw] text-black font-semibold mont">
+									<span className="text-right uppercase text-[2vw] text-black font-semibold mont tracking-wider">
 										Perkenalkan Kami
 									</span>
 									<h2 className="font-semibold text-[4.2vw] text-primary">
@@ -273,7 +273,7 @@ export default function HalamanHome() {
 
 
 						
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] px-[3vw] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/industri.png"
@@ -284,12 +284,12 @@ export default function HalamanHome() {
 								/>
 							</div>
 							<div>
-								<h3 className="text-[2.4vw]">Desain Industri</h3>
+								<h3 className="text-[2.4vw] font-[500]">Desain Industri</h3>
 							</div>
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] px-[3vw] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/cipta.png"
@@ -300,12 +300,12 @@ export default function HalamanHome() {
 								/>
 							</div>
 							<div>
-								<h3 className="text-[2.4vw]">Hak Cipta</h3>
+								<h3 className="text-[2.4vw] font-[500]">Hak Cipta</h3>
 							</div>
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] px-[3vw] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/dagang.png"
@@ -316,12 +316,12 @@ export default function HalamanHome() {
 								/>
 							</div>
 							<div>
-								<h3 className="text-[2.4vw]">Rahasia Dagang</h3>
+								<h3 className="text-[2.4vw] font-[500]">Rahasia Dagang</h3>
 							</div>
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
 
-						<div className="border-t-2 border-t-primary py-[3vh] flex justify-between items-center mx-auto">
+						<div className="border-t-2 border-t-primary py-[3vh] px-[3vw] flex justify-between items-center mx-auto">
 							<div>
 								<Image
 									src="/dtlst.png"
@@ -332,7 +332,7 @@ export default function HalamanHome() {
 								/>
 							</div>
 							<div>
-								<h3 className="text-[2.4vw]">DTLST</h3>
+								<h3 className="text-[2.4vw] font-[500]">DTLST</h3>
 							</div>
 							<div className="text-[2.4vw] text-[#D9DEEB]">+</div>
 						</div>
