@@ -47,6 +47,13 @@ const handlePreviousPage = () => {
         setPage(prevPage => prevPage - 1);
     }
 };
+const handleLastPage = () => {
+        setPage(pages-1);
+   
+};
+const handleFirstPage = () => {
+        setPage(0);
+};
 
 const handlePageChange = (newPage: number) => {
   setPage(newPage);
@@ -71,8 +78,10 @@ const findData = (e: FormEvent<HTMLFormElement>) =>  {
 
           <div className='mt-[4vw]'>
             <DataTable columns={columns} data={data}  rows={rows} page={page} pages={pages} 
+            onFirstPage={handleFirstPage}
             onNextPage={handleNextPage}
             onPreviousPage={handlePreviousPage}
+            onLastPage={handleLastPage}
             onPageChange={handlePageChange}
             loading={loading}
             />

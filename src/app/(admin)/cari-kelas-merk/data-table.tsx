@@ -26,8 +26,10 @@ interface DataTableProps<TData, TValue> {
 	page: number
 	pages: number
 	loading:boolean
+	onFirstPage: () => void;
 	onNextPage: () => void;
     onPreviousPage: () => void;
+    onLastPage: () => void;
 	onPageChange: (page:number) =>void
 }
 const PAGE_RANGE = 2;
@@ -38,8 +40,10 @@ export function DataTable<TData, TValue>({
 	page,
 	pages,
 	loading,
+	onFirstPage,
 	onNextPage,
     onPreviousPage,
+    onLastPage,
 	onPageChange
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
@@ -68,12 +72,12 @@ export function DataTable<TData, TValue>({
         }
 
         // Add ellipses if there are gaps at the start or end
-        if (startPage > 0) {
-            pageNumbers.unshift("0");
-        }
-        if (endPage < pages - 1) {
-            pageNumbers.push("0");
-        }
+        // if (startPage > 0) {
+        //     pageNumbers.unshift("0");
+        // }
+        // if (endPage < pages - 1) {
+        //     pageNumbers.push("0");
+        // }
 
         return pageNumbers;
     };
@@ -125,29 +129,60 @@ export function DataTable<TData, TValue>({
 				</TableBody>
 			</Table>
 		
-			<div className="flex items-center justify-between space-x-2 px-[2vw] py-[4vh]">
+			<div className="flex items-center  space-x-2 px-[2vw] py-[4vh]">
 			<div className="flex items-center">
           <span className="text-sm">Total Rows: {rows} Pages {rows ? page + 1 : 0} of {pages}</span>
         </div>
+
+				<Button
+					variant="outline"
+					size="sm"
+					onClick={onFirstPage}
+					disabled={loading}
+					style={{ display: page == 0 ? 'none' : 'inline-block' }}
+					
+				>
+					First
+				</Button>
 				<Button
 					variant="outline"
 					size="sm"
 					onClick={onPreviousPage}
 					disabled={page <= 0 || loading}
-					
+					style={{display: page == 0  ? 'none' : 'inline-block' }}
 				>
 					Previous
 				</Button>
 	
-
+				{pageNumbers.map((pageNumber, index) => (
+                   <Button
+				   key={pageNumber}
+				   variant={page === pageNumber ? "secondary" : "outline"}
+				   size="sm"
+				   className=""
+				   onClick={() => onPageChange(pageNumber)}
+			   >
+				   {pageNumber + 1}
+			   </Button>
+                    ))}
 			
 				<Button
 					variant="outline"
 					size="sm"
 					onClick={onNextPage}
 					disabled={page >= pages - 1 || loading}
+					style={{ display: page === pages - 1 ? 'none' : 'inline-block' }}
 				>
 					Next
+				</Button>
+				<Button
+					variant="outline"
+					size="sm"
+					onClick={onLastPage}
+					disabled={loading}
+					style={{ display: page === pages - 1 ? 'none' : 'inline-block' }}
+				>
+					Last
 				</Button>
 			</div>
 		</div>
