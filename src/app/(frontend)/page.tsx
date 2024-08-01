@@ -1,9 +1,9 @@
 import Image from "next/image";
-import ServicesBtn from "./(frontend)/_component/services";
-import ProductTab from "./(frontend)/_component/produk";
-import CekMerk from "./(frontend)/_component/cek";
-import Footer from "./(frontend)/_component/footer";
-import ProductRightTab from "./(frontend)/_component/product_r";
+import ServicesBtn from "./_component/services";
+import ProductTab from "./_component/produk";
+import CekMerk from "./_component/cek";
+import Footer from "./_component/footer";
+import ProductRightTab from "./_component/product_r";
 // import React, { useEffect } from "react";
 
 export default function HalamanHome() {
