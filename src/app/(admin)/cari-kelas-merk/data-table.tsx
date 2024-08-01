@@ -22,11 +22,17 @@ import { Button } from "@/components/ui/button";
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
+	rows: number
+	page: number
+	pages: number
 }
 
 export function DataTable<TData, TValue>({
 	columns,
 	data,
+	rows,
+	page,
+	pages,
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
@@ -79,7 +85,11 @@ export function DataTable<TData, TValue>({
 					)}
 				</TableBody>
 			</Table>
+		
 			<div className="flex items-center justify-between space-x-2 px-[2vw] py-[4vh]">
+			<div className="flex items-center">
+          <span className="text-sm">Total Rows: {rows} Pages {rows ? page + 1 : 0} of {pages}</span>
+        </div>
 				<Button
 					variant="outline"
 					size="sm"

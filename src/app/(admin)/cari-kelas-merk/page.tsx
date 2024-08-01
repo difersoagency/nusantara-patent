@@ -1,60 +1,35 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import {KelasMerk, columns} from './columns'
 import { DataTable } from './data-table'
+import axios from 'axios';
+const ROOT_API = process.env.NEXT_PUBLIC_API;
 
-async function getData(): Promise<KelasMerk[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing',
-      inggris: "pending",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    {
-      id: "728ed52f",
-      kelas: 1,
-      indo: 'testing2',
-      inggris: "pending2",
-    },
-    
-    // ...
-  ]
-}
 
-export default async function KelasMerk() {
+export default  function CariKelas() {
+    const [data,setData] = useState([]);
+    const [page,setPage] = useState(0);
+    const [limit,setLimit] = useState(10);
+    const [pages,setPages] = useState(0);
+    const [rows,setRows] = useState(0);
+    const [keyword,setKeyword] =  useState("");
 
-  const data = await getData()
+  useEffect(()=>{
+    getData();
+  },[page,keyword])
+
+  const getData = async() => {
+    const response = await axios.get(`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`)
+
+    setData(response.data.result)
+    setPage(response.data.page)
+    setPages(response.data.totalPage)
+    setRows(response.data.totalRows)
+  }
+
+
+
+
   return (
       <div className='w-full  flex'>
         <div className='mt-[7vh]'>
@@ -67,7 +42,7 @@ export default async function KelasMerk() {
           </div>
 
           <div className='mt-[4vw]'>
-            <DataTable columns={columns} data={data} />
+            <DataTable columns={columns} data={data}  rows={rows} page={page} pages={pages} />
           </div>
         </div>
         

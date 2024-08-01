@@ -5,8 +5,8 @@ import { ColumnDef } from "@tanstack/react-table"
 export type KelasMerk = {
     id: string
     kelas: number
-    indo: string
-    inggris: string
+    nama_ind: string
+    nama_eng: string
     
 }
 
@@ -17,11 +17,11 @@ export const columns: ColumnDef<KelasMerk>[] = [
         header: 'Kelas'     
     },
     {
-        accessorKey: 'indo',
+        accessorKey: 'nama_ind',
         header: 'Indonesia'
     },
     {
-        accessorKey:'inggris',
+        accessorKey:'nama_eng',
         header:'Inggris'
     }
 ]
