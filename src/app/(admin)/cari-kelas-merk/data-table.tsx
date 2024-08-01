@@ -57,7 +57,6 @@ export function DataTable<TData, TValue>({
         let startPage = Math.max(page - PAGE_RANGE, 0);
         let endPage = Math.min(page + PAGE_RANGE, pages - 1);
 
-        // Adjust start and end page if close to the beginning or end
         if (endPage - startPage < PAGE_RANGE * 2) {
             if (startPage === 0) {
                 endPage = Math.min(PAGE_RANGE * 2, pages - 1);
@@ -71,7 +70,6 @@ export function DataTable<TData, TValue>({
             pageNumbers.push(i);
         }
 
-        // Add ellipses if there are gaps at the start or end
         // if (startPage > 0) {
         //     pageNumbers.unshift("0");
         // }
@@ -129,11 +127,11 @@ export function DataTable<TData, TValue>({
 				</TableBody>
 			</Table>
 		
-			<div className="flex items-center  space-x-2 px-[2vw] py-[4vh]">
+			<div className="flex items-center  justify-between space-x-2 px-[2vw] py-[4vh]">
 			<div className="flex items-center">
           <span className="text-sm">Total Rows: {rows} Pages {rows ? page + 1 : 0} of {pages}</span>
         </div>
-
+						<div className="flex items-center space-x-2">
 				<Button
 					variant="outline"
 					size="sm"
@@ -184,6 +182,7 @@ export function DataTable<TData, TValue>({
 				>
 					Last
 				</Button>
+			</div>
 			</div>
 		</div>
 	);

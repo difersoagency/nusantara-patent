@@ -7,11 +7,13 @@ export type KelasMerk = {
     kelas: number
     nama_ind: string
     nama_eng: string
+   
     
 }
 
 
 export const columns: ColumnDef<KelasMerk>[] = [
+   
     {
         accessorKey: 'kelas',
         header: 'Kelas'     
