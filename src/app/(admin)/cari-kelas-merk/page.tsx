@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,FormEvent} from 'react'
 import {KelasMerk, columns} from './columns'
 import { DataTable } from './data-table'
 import axios from 'axios';
@@ -13,36 +13,69 @@ export default  function CariKelas() {
     const [pages,setPages] = useState(0);
     const [rows,setRows] = useState(0);
     const [keyword,setKeyword] =  useState("");
+    const [query,setQuery] =  useState("");
+    const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
     getData();
-  },[page,keyword])
+  },[page,keyword,limit])
 
   const getData = async() => {
-    const response = await axios.get(`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`)
-
-    setData(response.data.result)
-    setPage(response.data.page)
-    setPages(response.data.totalPage)
-    setRows(response.data.totalRows)
+    setLoading(true)
+    try {
+      const response = await axios.get(`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`)
+      setData(response.data.result)
+      setPage(response.data.page)
+      setPages(response.data.totalPage)
+      setRows(response.data.totalRows)
+    } catch (error) {
+      console.error("Error Fetching")
+    } finally {
+      setLoading(false)
+    }
+   
   }
 
+  const handleNextPage = () => {
+    if (page < pages - 1) {
+        setPage(prevPage => prevPage + 1);
+    }
+};
 
+const handlePreviousPage = () => {
+    if (page > 0) {
+        setPage(prevPage => prevPage - 1);
+    }
+};
 
+const handlePageChange = (newPage: number) => {
+  setPage(newPage);
+};
+
+const findData = (e: FormEvent<HTMLFormElement>) =>  {
+  e.preventDefault()
+  setPage(0)
+  setKeyword(query)
+}
 
   return (
       <div className='w-full  flex'>
         <div className='mt-[7vh]'>
           <div className='px-[5vw]'>
             <h1 className='text-3xl mont'><span className='font-bold text-primary'>Cari Klasifikasi</span> Untuk Merk Anda!</h1>
-            <form action="" className='flex items-center mt-[2.5vw]'>
-              <input type="text" name="merk" id="merk" className='border border-primary w-full px-[1.5vw] py-[1vw] text-xs outline-none'/>
+            <form onSubmit={findData} className='flex items-center mt-[2.5vw]'>
+              <input type="text" name="merk" id="merk" className='border border-primary w-full px-[1.5vw] py-[1vw] text-xs outline-none' value={query} onChange={(e)=>setQuery(e.target.value)}/>
               <button type='submit' className='text-xs bg-primary text-white py-[2vh]  w-[10vw] ml-[2vw]'>Cari Kelas</button>
             </form>
           </div>
 
           <div className='mt-[4vw]'>
-            <DataTable columns={columns} data={data}  rows={rows} page={page} pages={pages} />
+            <DataTable columns={columns} data={data}  rows={rows} page={page} pages={pages} 
+            onNextPage={handleNextPage}
+            onPreviousPage={handlePreviousPage}
+            onPageChange={handlePageChange}
+            loading={loading}
+            />
           </div>
         </div>
         

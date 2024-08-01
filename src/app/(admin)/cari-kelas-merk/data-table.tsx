@@ -25,14 +25,22 @@ interface DataTableProps<TData, TValue> {
 	rows: number
 	page: number
 	pages: number
+	loading:boolean
+	onNextPage: () => void;
+    onPreviousPage: () => void;
+	onPageChange: (page:number) =>void
 }
-
+const PAGE_RANGE = 2;
 export function DataTable<TData, TValue>({
 	columns,
 	data,
 	rows,
 	page,
 	pages,
+	loading,
+	onNextPage,
+    onPreviousPage,
+	onPageChange
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
@@ -40,6 +48,37 @@ export function DataTable<TData, TValue>({
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
 	});
+
+	const getPageNumbers = () => {
+        let startPage = Math.max(page - PAGE_RANGE, 0);
+        let endPage = Math.min(page + PAGE_RANGE, pages - 1);
+
+        // Adjust start and end page if close to the beginning or end
+        if (endPage - startPage < PAGE_RANGE * 2) {
+            if (startPage === 0) {
+                endPage = Math.min(PAGE_RANGE * 2, pages - 1);
+            } else if (endPage === pages - 1) {
+                startPage = Math.max(pages - PAGE_RANGE * 2 - 1, 0);
+            }
+        }
+
+        const pageNumbers = [];
+        for (let i = startPage; i <= endPage; i++) {
+            pageNumbers.push(i);
+        }
+
+        // Add ellipses if there are gaps at the start or end
+        if (startPage > 0) {
+            pageNumbers.unshift("0");
+        }
+        if (endPage < pages - 1) {
+            pageNumbers.push("0");
+        }
+
+        return pageNumbers;
+    };
+
+    const pageNumbers = getPageNumbers();
 
 	return (
 		<div className="rounded-md w-[100vw] px-[5vw]">
@@ -93,16 +132,20 @@ export function DataTable<TData, TValue>({
 				<Button
 					variant="outline"
 					size="sm"
-					onClick={() => table.previousPage()}
-					disabled={!table.getCanPreviousPage()}
+					onClick={onPreviousPage}
+					disabled={page <= 0 || loading}
+					
 				>
 					Previous
 				</Button>
+	
+
+			
 				<Button
 					variant="outline"
 					size="sm"
-					onClick={() => table.nextPage()}
-					disabled={!table.getCanNextPage()}
+					onClick={onNextPage}
+					disabled={page >= pages - 1 || loading}
 				>
 					Next
 				</Button>
