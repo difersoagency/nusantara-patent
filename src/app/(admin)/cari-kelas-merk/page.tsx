@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState ,FormEvent} from 'react'
-import {KelasMerk, columns} from './columns'
+import React, { useEffect, useState ,FormEvent, ChangeEvent} from 'react'
+import {KelasMerk, columns,} from './columns'
 import { DataTable } from './data-table'
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
+import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 const ROOT_API = process.env.NEXT_PUBLIC_API;
 
 
@@ -27,7 +28,7 @@ export default  function CariKelas() {
     const [keyword,setKeyword] =  useState("");
     const [query,setQuery] =  useState("");
     const [loading, setLoading] = useState(false);
-
+    const [searchTerm, setSearchTerm] = useState<string>('');
 
     useEffect(()=>{
       const keywords = localStorage.getItem('keywords');
@@ -88,12 +89,15 @@ const handlePageChange = (newPage: number) => {
   setPage(newPage);
 };
 
-const findData = (e: FormEvent<HTMLFormElement>) =>  {
+const findData = (e: ChangeEvent<HTMLFormElement>) =>  {
   e.preventDefault()
   setPage(0)
   setKeyword(query)
+  setSearchTerm(e.target.value);
+
 
 }
+const columnss = columns(query); 
 
   return (
       <div className='w-full  flex'>
@@ -107,13 +111,14 @@ const findData = (e: FormEvent<HTMLFormElement>) =>  {
           </div>
 
           <div className='mt-[4vw]'>
-            <DataTable columns={columns} data={data}  rows={rows} page={page} pages={pages} 
+            <DataTable columns={columnss} data={data}  rows={rows} page={page} pages={pages} 
             onFirstPage={handleFirstPage}
             onNextPage={handleNextPage}
             onPreviousPage={handlePreviousPage}
             onLastPage={handleLastPage}
             onPageChange={handlePageChange}
             loading={loading}
+            keyword={keyword}
             />
           </div>
         </div>

@@ -78,3 +78,10 @@
       font-style: normal;
     }
   }
+
+  mark {
+    background-color: #EB3C3C;
+    /* border-radius: 5vw; */
+    /* padding: 3px 10px; */
+    color: white;
+  }

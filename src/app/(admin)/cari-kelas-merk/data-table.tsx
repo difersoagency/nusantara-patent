@@ -26,6 +26,7 @@ interface DataTableProps<TData, TValue> {
 	page: number
 	pages: number
 	loading:boolean
+	keyword : string
 	onFirstPage: () => void;
 	onNextPage: () => void;
     onPreviousPage: () => void;
@@ -40,6 +41,7 @@ export function DataTable<TData, TValue>({
 	page,
 	pages,
 	loading,
+	keyword,
 	onFirstPage,
 	onNextPage,
     onPreviousPage,
@@ -79,6 +81,8 @@ export function DataTable<TData, TValue>({
 
         return pageNumbers;
     };
+	
+	
 
     const pageNumbers = getPageNumbers();
 
