@@ -3,11 +3,33 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
+import { useRouter } from 'next/navigation';
+
+
+
+
+
+
 export default function CekMerk() {
 
+	 const router  = useRouter();
     const merkTab = useRef<HTMLButtonElement | null>(null);
 	const kelasTab = useRef<HTMLButtonElement | null>(null);
     const [isKelas, setKelas] = useState(false);
+    const [kataKunci, setkataKunci] = useState("");
+
+
+	const cariData = () => {
+		localStorage.setItem('keywords', kataKunci);
+		router.push('/cari-kelas-merk');
+	
+	}
+
+	// const cariData = () => {
+	// 	router.push(`/cari-kelas-merk?keywords=${encodeURIComponent(kataKunci)}`);
+	
+	// }
+
 
     useEffect(() => {
         const Merk = merkTab.current;
@@ -58,8 +80,9 @@ export default function CekMerk() {
 											id="merk"
 											className="w-[80%] border border-b-2 border-primary py-[2vh] px-[2vw] text-[1vw]"
 											placeholder={`${isKelas ? 'Masukan Kata Kunci Usaha Anda' : 'Tulis Nama Merek Anda'}`}
+											value={kataKunci} onChange={(e) => setkataKunci(e.target.value)}  
 										/>
-										<button className="py-[1.7vh] px-[1vw] bg-primary">
+										<button className="py-[1.7vh] px-[1vw] bg-primary" onClick={cariData}>
 											<Image
 												src="/search.png"
 												width={200}

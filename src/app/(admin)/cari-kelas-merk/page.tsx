@@ -3,10 +3,22 @@ import React, { useEffect, useState ,FormEvent} from 'react'
 import {KelasMerk, columns} from './columns'
 import { DataTable } from './data-table'
 import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
 const ROOT_API = process.env.NEXT_PUBLIC_API;
 
 
+
+  // type Props = {
+	//   keywords: string;
+  // };
+
+
+
 export default  function CariKelas() {
+
+  const searchParams = useSearchParams();
+
+ 
     const [data,setData] = useState([]);
     const [page,setPage] = useState(0);
     const [limit,setLimit] = useState(10);
@@ -15,6 +27,22 @@ export default  function CariKelas() {
     const [keyword,setKeyword] =  useState("");
     const [query,setQuery] =  useState("");
     const [loading, setLoading] = useState(false);
+
+
+    useEffect(()=>{
+      const keywords = localStorage.getItem('keywords');
+      if (keywords) {
+        setQuery(keywords);
+        setKeyword(keywords);
+        localStorage.setItem('keywords', "");
+      }
+    })
+
+    // useEffect(() => {
+    //   const keywordsParam = searchParams.get('keywords');
+    //   setQuery(keywordsParam ? String(keywordsParam) : ''); 
+    //   setKeyword(keywordsParam ? String(keywordsParam) : ''); 
+    // }, [searchParams]);
 
   useEffect(()=>{
     getData();
@@ -28,6 +56,7 @@ export default  function CariKelas() {
       setPage(response.data.page)
       setPages(response.data.totalPage)
       setRows(response.data.totalRows)
+
     } catch (error) {
       console.error("Error Fetching")
     } finally {
@@ -63,6 +92,7 @@ const findData = (e: FormEvent<HTMLFormElement>) =>  {
   e.preventDefault()
   setPage(0)
   setKeyword(query)
+
 }
 
   return (
