@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState ,FormEvent, ChangeEvent} from 'react'
-import {KelasMerk, columns,} from './columns'
+import {columns,} from './columns'
 import { DataTable } from './data-table'
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
