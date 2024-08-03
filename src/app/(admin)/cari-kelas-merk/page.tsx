@@ -3,7 +3,6 @@ import React, { useEffect, useState ,FormEvent, ChangeEvent} from 'react'
 import {columns,} from './columns'
 import { DataTable } from './data-table'
 import axios from 'axios';
-import { useSearchParams } from 'next/navigation';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 const ROOT_API = process.env.NEXT_PUBLIC_API;
 
@@ -16,8 +15,6 @@ const ROOT_API = process.env.NEXT_PUBLIC_API;
 
 
 export default  function CariKelas() {
-
-  const searchParams = useSearchParams();
 
  
     const [data,setData] = useState([]);
