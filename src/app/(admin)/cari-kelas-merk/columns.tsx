@@ -26,7 +26,10 @@ export const columns= (query: string): ColumnDef<KelasMerk>[] => [
     },
     {
         accessorKey:'nama_eng',
-        header:'Inggris'
+        header:'Inggris',
+        cell: (info) => {// Ambil nilai searchTerm dari state tabel
+          return getHighlightedText(info.getValue(), query);
+        },
     }
 ]
 
