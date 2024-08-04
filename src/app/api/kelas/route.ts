@@ -3,11 +3,15 @@ const { PrismaClient } = require("@prisma/client")
 
 const prisma =  new PrismaClient();
 
-export async function GET(request) {
-  const url = new URL(request.url);
-  const page = parseInt(url.searchParams.get('page')) || 0;
-  const limit = parseInt(url.searchParams.get('limit')) || 10;
-  const search = url.searchParams.get('search_query') || "";
+export async function GET(req : Request) {
+  const url = new URL(req.url);
+
+  // Create URLSearchParams object from the query string
+  const searchParams = new URLSearchParams(url.search);
+
+  const page = parseInt(searchParams.get('page') ?? '0', 10);
+  const limit = parseInt(searchParams.get('limit') ?? '10', 10);
+  const search = searchParams.get('search_query') ?? '';
   const offset = limit * page;
 
   try {
@@ -68,7 +72,7 @@ export async function GET(request) {
   } catch (error) {
     return NextResponse.json({
       success: false,
-      message: error.message
+      
     }, {
       status: 500
     });
