@@ -49,7 +49,7 @@ export default  function CariKelas() {
   const getData = async() => {
     setLoading(true)
     try {
-      const response = await axios.get(`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`)
+      const response = await axios.get(`/api/kelas?search_query=${keyword}&page=${page}&limit=${limit}`)
       setData(response.data.result)
       setPage(response.data.page)
       setPages(response.data.totalPage)
