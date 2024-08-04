@@ -34,7 +34,7 @@ interface DataTableProps<TData, TValue> {
 	onLastPage: () => void;
 	onPageChange: (page: number) => void;
 }
-const PAGE_RANGE = 1;
+const PAGE_RANGE = 0;
 export function DataTable<TData, TValue>({
 	columns,
 	data,
@@ -136,13 +136,13 @@ export function DataTable<TData, TValue>({
 				</TableBody>
 			</Table>
 
-			<div className="flex items-center  justify-between space-x-2 px-[2vw] py-[4vh]">
-				<div className="flex items-center">
+			<div className="grid grid-cols-1  lg:flex items-center  justify-between lg:space-x-2 px-[2vw] py-[4vh]">
+				<div className="flex items-center mb-[3vh] lg:mb-[0vh] mx-auto lg:mx-0 ">
 					<span className="text-sm">
-						Total Rows: {rows} Pages {rows ? page + 1 : 0} of {pages}
+						Total Data: {rows} Pages {rows ? page + 1 : 0} of {pages}
 					</span>
 				</div>
-				<div className="flex items-center space-x-2">
+				<div className=" grid grid-cols-2 lg:flex items-center space-x-2 mx-auto">
 					<Button
 						variant="outline"
 						size="sm"
@@ -167,7 +167,7 @@ export function DataTable<TData, TValue>({
 							key={pageNumber}
 							variant={page === pageNumber ? "secondary" : "outline"}
 							size="sm"
-							className=""
+							className="col-span-2 mb-[2vw] bg-white border border-black mt-[2vw]"
 							onClick={() => onPageChange(pageNumber)}
 						>
 							{pageNumber + 1}

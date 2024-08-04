@@ -100,10 +100,10 @@ const columnss = columns(query);
       <div className='w-full  flex'>
         <div className='mt-[7vh]'>
           <div className='px-[5vw]'>
-            <h1 className='text-3xl mont'><span className='font-bold text-primary'>Cari Klasifikasi</span> Untuk Merk Anda!</h1>
-            <form onSubmit={findData} className='flex items-center mt-[2.5vw]'>
-              <input type="text" name="merk" id="merk" className='border border-primary w-full px-[1.5vw] py-[1vw] text-xs outline-none' value={query} onChange={(e)=>setQuery(e.target.value)}/>
-              <button type='submit' className='text-xs bg-primary text-white py-[2vh]  w-[10vw] ml-[2vw]'>Cari Kelas</button>
+            <h1 className='text-3xl mont lg:text-left text-center mb-[3vh] lg:mb-[0vw]'><span className='font-bold  text-primary'>Cari Klasifikasi</span> Untuk Merk Anda!</h1>
+            <form onSubmit={findData} className='lg:flex grid grid-cols-1 items-center mt-[2.5vw] text-center'>
+              <input type="text" name="merk" id="merk" className='border border-primary w-full px-[2vw] py-[3vw] lg:px-[1.5vw] lg:py-[1vw] text-xs outline-none' value={query} onChange={(e)=>setQuery(e.target.value)}/>
+              <button type='submit' className='text-xs bg-primary text-white py-[2vh] w-[20vw] mt-[4vw] lg:mt-[0vw] mx-auto lg:w-[10vw] lg:ml-[2vw]'>Cari Kelas</button>
             </form>
           </div>
 
