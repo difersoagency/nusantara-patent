@@ -58,6 +58,7 @@ export function DataTable<TData, TValue>({
 		rowCount: 200,
 	});
 
+	
 	const getPageNumbers = () => {
 		let startPage = Math.max(page - PAGE_RANGE, 0);
 		let endPage = Math.min(page + PAGE_RANGE, pages - 1);
@@ -101,7 +102,7 @@ export function DataTable<TData, TValue>({
 											: flexRender(
 													header.column.columnDef.header,
 													header.getContext()
-											  )}
+											)}
 									</TableHead>
 								);
 							})}
