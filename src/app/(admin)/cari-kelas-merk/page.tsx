@@ -154,10 +154,10 @@ export default function CariKelas() {
 							Cari Kelas
 						</button>
 					</form>
-          <div className="mt-[3vw]">
+          <div className="mt-[6vh] lg:mt-[3vw]">
           <DropdownMenu>
 								<DropdownMenuTrigger asChild>
-									<Button variant="outline" className="w-[13vw] h-full mr-[3vw] shadow-none border-primary">Bahasa : {language === 'ind' ? 'Indonesia' : 'English'}</Button>
+									<Button variant="outline" className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary">Bahasa : {language === 'ind' ? 'Indonesia' : 'English'}</Button>
 								</DropdownMenuTrigger>
 								<DropdownMenuContent className="w-56">
 									<DropdownMenuSeparator />
