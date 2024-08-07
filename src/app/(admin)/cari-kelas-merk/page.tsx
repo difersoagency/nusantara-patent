@@ -64,17 +64,9 @@ export default function CariKelas() {
 			const response = await axios.get(
 				`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`
 			);
-			// const filteredData = useMemo(() => {
-			//   switch (filter) {
-			//     case 'A':
-			//       return response.data.result.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
-			//     case 'B':
-			//       return response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
-			//     case 'all':
-			//     default:
-			//       return response.data.result;
-			//   }
-			// }, [filter, response.data.result]);
+
+			// const data1 = response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
+			
 			setData(response.data.result);
 			setPage(response.data.page);
 			setPages(response.data.totalPage);
@@ -85,6 +77,19 @@ export default function CariKelas() {
 			setLoading(false);
 		}
 	};
+
+
+	const filteredData = useMemo(() => {
+		switch (kategori) {
+		  case 'barang':
+			return data.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
+		  case 'jasa':
+			return data.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
+		  case 'all':
+		  default:
+			return data;
+		}
+	  }, [kategori, data]);
 
 	// const filteredData = useMemo(() => {
 	//   switch (filter) {
@@ -187,9 +192,9 @@ export default function CariKelas() {
 							<DropdownMenuTrigger asChild>
 								<Button
 									variant="outline"
-									className="w-[30vw] lg:w-[13vw] h-full shadow-none border-black text-xs"
+									className="w-[30vw] lg:w-[13vw] h-full shadow-none border-black text-xs uppercase"
 								>
-									Kategori
+									{kategori}
 								</Button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent className="w-56">
@@ -216,7 +221,7 @@ export default function CariKelas() {
 				<div className="mt-[4vw]">
 					<DataTable
 						columns={columnss}
-						data={data}
+						data={filteredData}
 						rows={rows}
 						page={page}
 						pages={pages}

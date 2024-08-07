@@ -19,6 +19,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -58,7 +59,8 @@ export function DataTable<TData, TValue>({
 		rowCount: 200,
 	});
 
-	
+	const [rowCount, setRowCount] = useState('10');
+
 	const getPageNumbers = () => {
 		let startPage = Math.max(page - PAGE_RANGE, 0);
 		let endPage = Math.min(page + PAGE_RANGE, pages - 1);
@@ -102,7 +104,7 @@ export function DataTable<TData, TValue>({
 											: flexRender(
 													header.column.columnDef.header,
 													header.getContext()
-											)}
+											  )}
 									</TableHead>
 								);
 							})}
@@ -118,13 +120,16 @@ export function DataTable<TData, TValue>({
 								data-state={row.getIsSelected() && "selected"}
 							>
 								{row.getVisibleCells().map((cell) => (
+									
 									<TableCell key={cell.id}>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}
+										{/* {table.getRow} */}
 									</TableCell>
 								))}
 							</TableRow>
 						))
 					) : (
+						// <p>{table.getRowModel().rows?.length}</p>
 						<TableRow>
 							<TableCell
 								colSpan={columns.length}
@@ -139,9 +144,47 @@ export function DataTable<TData, TValue>({
 
 			<div className="grid grid-cols-1  lg:flex items-center  justify-between lg:space-x-2 px-[2vw] py-[4vh]">
 				<div className="flex items-center mb-[3vh] lg:mb-[0vh] mx-auto lg:mx-0 ">
+					<span className="text-sm">Jumlah Data ditampilkan :</span>
+					<div>
+					<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<Button
+									variant="outline"
+									className="w-[20vw] lg:w-[6vw] h-full ml-[2vw] lg:ml-[1vw] mr-[3vw] shadow-none border-primary text-xs"
+								>
+									{rowCount}
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent className="w-56 border-primary bg-white px-[2vw] py-[2vw]">
+								<DropdownMenuSeparator />
+								<DropdownMenuRadioGroup
+									value={rowCount}
+									onValueChange={setRowCount}
+								>
+									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md mb-[2vh]" value="10">
+										10
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md mb-[2vh]" value="25">
+										25
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md mb-[2vh]" value="50">
+										50
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md" value="100">
+										100
+									</DropdownMenuRadioItem>
+								</DropdownMenuRadioGroup>
+							</DropdownMenuContent>
+						</DropdownMenu>
+					</div>
+				</div>
+
+				<div className="flex items-center mb-[3vh] lg:mb-[0vh] mx-auto lg:mx-0 ">
 					<span className="text-sm">
 						Total Data: {rows} Pages {rows ? page + 1 : 0} of {pages}
 					</span>
+			
+
 				</div>
 				<div className=" grid grid-cols-2 lg:flex items-center space-x-2 mx-auto">
 					<Button
@@ -194,6 +237,7 @@ export function DataTable<TData, TValue>({
 						Last
 					</Button>
 				</div>
+				
 			</div>
 		</div>
 	);
