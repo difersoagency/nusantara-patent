@@ -162,7 +162,7 @@ export default function CariKelas() {
 							<DropdownMenuTrigger asChild>
 								<Button
 									variant="outline"
-									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary"
+									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary text-xs"
 								>
 									Bahasa : {language === "ind" ? "Indonesia" : "English"}
 								</Button>
@@ -187,7 +187,7 @@ export default function CariKelas() {
 							<DropdownMenuTrigger asChild>
 								<Button
 									variant="outline"
-									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-black"
+									className="w-[30vw] lg:w-[13vw] h-full shadow-none border-black text-xs"
 								>
 									Kategori
 								</Button>
