@@ -1,5 +1,11 @@
 "use client";
-import React, { useEffect, useState, FormEvent, ChangeEvent, useMemo } from "react";
+import React, {
+	useEffect,
+	useState,
+	FormEvent,
+	ChangeEvent,
+	useMemo,
+} from "react";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import axios from "axios";
@@ -31,7 +37,7 @@ export default function CariKelas() {
 	const [loading, setLoading] = useState(false);
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [language, setLanguage] = useState("ind");
-  const [filter, setFilter] = useState('all');
+	const [kategori, setKategori] = useState("all");
 
 	useEffect(() => {
 		const keywords = localStorage.getItem("keywords");
@@ -51,7 +57,6 @@ export default function CariKelas() {
 	useEffect(() => {
 		getData();
 	}, [page, keyword, limit]);
-  
 
 	const getData = async () => {
 		setLoading(true);
@@ -59,17 +64,17 @@ export default function CariKelas() {
 			const response = await axios.get(
 				`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`
 			);
-      // const filteredData = useMemo(() => {
-      //   switch (filter) {
-      //     case 'A':
-      //       return response.data.result.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
-      //     case 'B':
-      //       return response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
-      //     case 'all':
-      //     default:
-      //       return response.data.result;
-      //   }
-      // }, [filter, response.data.result]);
+			// const filteredData = useMemo(() => {
+			//   switch (filter) {
+			//     case 'A':
+			//       return response.data.result.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
+			//     case 'B':
+			//       return response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
+			//     case 'all':
+			//     default:
+			//       return response.data.result;
+			//   }
+			// }, [filter, response.data.result]);
 			setData(response.data.result);
 			setPage(response.data.page);
 			setPages(response.data.totalPage);
@@ -81,19 +86,17 @@ export default function CariKelas() {
 		}
 	};
 
-  
-
-  // const filteredData = useMemo(() => {
-  //   switch (filter) {
-  //     case 'jasa':
-  //       return data.filter((item) => item.id >= 1 && item.id <= 50);
-  //     case 'barang':
-  //       return data.filter((item) => item.kelas >= 51 && item.id <= 100);
-  //     case 'all':
-  //     default:
-  //       return data;
-  //   }
-  // }, [filter, data]);
+	// const filteredData = useMemo(() => {
+	//   switch (filter) {
+	//     case 'jasa':
+	//       return data.filter((item) => item.id >= 1 && item.id <= 50);
+	//     case 'barang':
+	//       return data.filter((item) => item.kelas >= 51 && item.id <= 100);
+	//     case 'all':
+	//     default:
+	//       return data;
+	//   }
+	// }, [filter, data]);
 
 	const handleNextPage = () => {
 		if (page < pages - 1) {
@@ -154,27 +157,60 @@ export default function CariKelas() {
 							Cari Kelas
 						</button>
 					</form>
-          <div className="mt-[6vh] lg:mt-[3vw]">
-          <DropdownMenu>
-								<DropdownMenuTrigger asChild>
-									<Button variant="outline" className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary">Bahasa : {language === 'ind' ? 'Indonesia' : 'English'}</Button>
-								</DropdownMenuTrigger>
-								<DropdownMenuContent className="w-56">
-									<DropdownMenuSeparator />
-									<DropdownMenuRadioGroup
-										value={language}
-										onValueChange={setLanguage}
-									>
-										<DropdownMenuRadioItem value="ind">
-											Indonesia
-										</DropdownMenuRadioItem>
-										<DropdownMenuRadioItem value="en">
-											English
-										</DropdownMenuRadioItem>
-									</DropdownMenuRadioGroup>
-								</DropdownMenuContent>
-							</DropdownMenu>
-          </div>
+					<div className="mt-[6vh] lg:mt-[3vw] flex items-center justify-between">
+						<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<Button
+									variant="outline"
+									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary"
+								>
+									Bahasa : {language === "ind" ? "Indonesia" : "English"}
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent className="w-56">
+								<DropdownMenuSeparator />
+								<DropdownMenuRadioGroup
+									value={language}
+									onValueChange={setLanguage}
+								>
+									<DropdownMenuRadioItem value="ind">
+										Indonesia
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem value="en">
+										English
+									</DropdownMenuRadioItem>
+								</DropdownMenuRadioGroup>
+							</DropdownMenuContent>
+						</DropdownMenu>
+
+						<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<Button
+									variant="outline"
+									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-black"
+								>
+									Kategori
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent className="w-56">
+								<DropdownMenuSeparator />
+								<DropdownMenuRadioGroup
+									value={kategori}
+									onValueChange={setKategori}
+								>
+									<DropdownMenuRadioItem value="all">
+										Semua
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem value="barang">
+										Barang
+									</DropdownMenuRadioItem>
+									<DropdownMenuRadioItem value="jasa">
+										Jasa
+									</DropdownMenuRadioItem>
+								</DropdownMenuRadioGroup>
+							</DropdownMenuContent>
+						</DropdownMenu>
+					</div>
 				</div>
 
 				<div className="mt-[4vw]">
