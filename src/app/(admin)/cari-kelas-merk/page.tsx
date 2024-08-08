@@ -56,13 +56,13 @@ export default function CariKelas() {
 
 	useEffect(() => {
 		getData();
-	}, [page, keyword, limit]);
+	}, [page, keyword, limit,kategori]);
 
 	const getData = async () => {
 		setLoading(true);
 		try {
 			const response = await axios.get(
-				`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}`
+				`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}&kategori=${kategori}`
 			);
 
 			// const data1 = response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
@@ -79,17 +79,17 @@ export default function CariKelas() {
 	};
 
 
-	const filteredData = useMemo(() => {
-		switch (kategori) {
-		  case 'barang':
-			return data.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
-		  case 'jasa':
-			return data.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
-		  case 'all':
-		  default:
-			return data;
-		}
-	  }, [kategori, data]);
+	// const filteredData = useMemo(() => {
+	// 	switch (kategori) {
+	// 	  case 'barang':
+	// 		return data.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
+	// 	  case 'jasa':
+	// 		return data.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
+	// 	  case 'all':
+	// 	  default:
+	// 		return data;
+	// 	}
+	//   }, [kategori, data]);
 
 	// const filteredData = useMemo(() => {
 	//   switch (filter) {
@@ -124,6 +124,15 @@ export default function CariKelas() {
 	const handlePageChange = (newPage: number) => {
 		setPage(newPage);
 	};
+
+	const handleLimitChange = (size : number) => {
+		setLimit(size)
+		//alert(size)
+	}
+
+	const handleKategoriChange = (value : string) => {
+		setKategori(value)
+	}
 
 	const findData = (e: ChangeEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -201,7 +210,7 @@ export default function CariKelas() {
 								<DropdownMenuSeparator />
 								<DropdownMenuRadioGroup
 									value={kategori}
-									onValueChange={setKategori}
+									onValueChange={handleKategoriChange}
 								>
 									<DropdownMenuRadioItem value="all">
 										Semua
@@ -221,7 +230,7 @@ export default function CariKelas() {
 				<div className="mt-[4vw]">
 					<DataTable
 						columns={columnss}
-						data={filteredData}
+						data={data}
 						rows={rows}
 						page={page}
 						pages={pages}
@@ -230,6 +239,7 @@ export default function CariKelas() {
 						onPreviousPage={handlePreviousPage}
 						onLastPage={handleLastPage}
 						onPageChange={handlePageChange}
+						onLimitChange={handleLimitChange}
 						loading={loading}
 						keyword={keyword}
 					/>

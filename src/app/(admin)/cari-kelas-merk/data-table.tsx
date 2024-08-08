@@ -21,6 +21,12 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 
+interface DropdownMenuRadioGroupProps {
+	value: number;
+	onValueChange: (newValue: number) => void;
+  }
+  
+
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
@@ -34,6 +40,7 @@ interface DataTableProps<TData, TValue> {
 	onPreviousPage: () => void;
 	onLastPage: () => void;
 	onPageChange: (page: number) => void;
+	onLimitChange:(size:number) =>void;
 }
 const PAGE_RANGE = 0;
 export function DataTable<TData, TValue>({
@@ -49,6 +56,7 @@ export function DataTable<TData, TValue>({
 	onPreviousPage,
 	onLastPage,
 	onPageChange,
+	onLimitChange
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
@@ -56,10 +64,19 @@ export function DataTable<TData, TValue>({
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
 		manualPagination: true,
-		rowCount: 200,
+		// rowCount: 200,
 	});
 
 	const [rowCount, setRowCount] = useState('10');
+
+	
+	const onLimitChanges = (newValue: string) => {
+		setRowCount(newValue);
+		onLimitChange(parseInt(newValue))
+	}
+
+	console.log(rowCount);
+
 
 	const getPageNumbers = () => {
 		let startPage = Math.max(page - PAGE_RANGE, 0);
@@ -159,7 +176,8 @@ export function DataTable<TData, TValue>({
 								<DropdownMenuSeparator />
 								<DropdownMenuRadioGroup
 									value={rowCount}
-									onValueChange={setRowCount}
+									
+									onValueChange={onLimitChanges}
 								>
 									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md mb-[2vh]" value="10">
 										10
