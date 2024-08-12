@@ -108,7 +108,7 @@ export function DataTable<TData, TValue>({
 	const pageNumbers = getPageNumbers();
 
 	return (
-		<div className="rounded-md w-[100vw] px-[5vw]">
+		<div className="rounded-md w-[100vw] px-[10vw]">
 			<Table>
 				<TableHeader className="bg-blue">
 					{table.getHeaderGroups().map((headerGroup) => (
@@ -191,6 +191,9 @@ export function DataTable<TData, TValue>({
 									<DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md" value="100">
 										100
 									</DropdownMenuRadioItem>
+									{/* <DropdownMenuRadioItem className="text-xs hover:bg-primary hover:text-white px-[1vw] py-[0.5vh] rounded-md" value={`${rows}`}>
+										All
+									</DropdownMenuRadioItem> */}
 								</DropdownMenuRadioGroup>
 							</DropdownMenuContent>
 						</DropdownMenu>

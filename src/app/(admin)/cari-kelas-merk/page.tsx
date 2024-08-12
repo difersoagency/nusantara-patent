@@ -79,30 +79,6 @@ export default function CariKelas() {
 	};
 
 
-	// const filteredData = useMemo(() => {
-	// 	switch (kategori) {
-	// 	  case 'barang':
-	// 		return data.filter((item:any) => item.kelas >= 1 && item.kelas <= 34);
-	// 	  case 'jasa':
-	// 		return data.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
-	// 	  case 'all':
-	// 	  default:
-	// 		return data;
-	// 	}
-	//   }, [kategori, data]);
-
-	// const filteredData = useMemo(() => {
-	//   switch (filter) {
-	//     case 'jasa':
-	//       return data.filter((item) => item.id >= 1 && item.id <= 50);
-	//     case 'barang':
-	//       return data.filter((item) => item.kelas >= 51 && item.id <= 100);
-	//     case 'all':
-	//     default:
-	//       return data;
-	//   }
-	// }, [filter, data]);
-
 	const handleNextPage = () => {
 		if (page < pages - 1) {
 			setPage((prevPage) => prevPage + 1);
@@ -145,7 +121,7 @@ export default function CariKelas() {
 	return (
 		<div className="w-full  flex">
 			<div className="mt-[7vh]">
-				<div className="px-[5vw]">
+				<div className="px-[10vw]">
 					<h1 className="text-3xl mont lg:text-left text-center mb-[3vh] lg:mb-[0vw]">
 						<span className="font-bold  text-primary">Cari Klasifikasi</span>{" "}
 						Untuk Merk Anda!
@@ -159,71 +135,77 @@ export default function CariKelas() {
 								type="text"
 								name="merk"
 								id="merk"
-								className="border border-primary w-full px-[2vw] py-[3vw] lg:px-[1.5vw] lg:py-[1vw] text-xs outline-none"
+								className="border border-primary w-full px-[2vw] py-[3vw] lg:px-[1.5vw] lg:py-[1vw] text-xs outline-none rounded-lg"
 								value={query}
 								onChange={(e) => setQuery(e.target.value)}
 							/>
 						</div>
 						<button
 							type="submit"
-							className="text-xs bg-primary text-white py-[2vh] w-[20vw] mt-[4vw] lg:mt-[0vw] mx-auto lg:w-[10vw] lg:ml-[2vw]"
+							className="text-xs bg-primary text-white py-[2vh] w-[20vw] mt-[4vw] lg:mt-[0vw] mx-auto lg:w-[10vw] lg:ml-[2vw] rounded-lg"
 						>
 							Cari Kelas
 						</button>
 					</form>
-					<div className="mt-[6vh] lg:mt-[3vw] flex items-center justify-between">
-						<DropdownMenu>
-							<DropdownMenuTrigger asChild>
-								<Button
-									variant="outline"
-									className="w-[50vw] lg:w-[13vw] h-full mr-[3vw] shadow-none border-primary text-xs"
-								>
-									Bahasa : {language === "ind" ? "Indonesia" : "English"}
-								</Button>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent className="w-56">
-								<DropdownMenuSeparator />
-								<DropdownMenuRadioGroup
-									value={language}
-									onValueChange={setLanguage}
-								>
-									<DropdownMenuRadioItem value="ind">
-										Indonesia
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="en">
-										English
-									</DropdownMenuRadioItem>
-								</DropdownMenuRadioGroup>
-							</DropdownMenuContent>
-						</DropdownMenu>
+					<div className="mt-[6vh] lg:mt-[3vw] flex items-center ">
+						<div className="flex items-center gap-[1.5vw]">
+							<p className="text-xs">Bahasa : </p>
+							<DropdownMenu>
+								<DropdownMenuTrigger asChild>
+									<Button
+										variant="outline"
+										className="w-[50vw] lg:w-auto h-full mr-[3vw] shadow-none border-primary text-xs"
+									>
+										{language === "ind" ? "Indonesia" : "English"}
+									</Button>
+								</DropdownMenuTrigger>
+								<DropdownMenuContent className="w-56">
+									<DropdownMenuSeparator />
+									<DropdownMenuRadioGroup
+										value={language}
+										onValueChange={setLanguage}
+									>
+										<DropdownMenuRadioItem value="ind">
+											Indonesia
+										</DropdownMenuRadioItem>
+										<DropdownMenuRadioItem value="en">
+											English
+										</DropdownMenuRadioItem>
+									</DropdownMenuRadioGroup>
+								</DropdownMenuContent>
+							</DropdownMenu>
+						</div>
 
-						<DropdownMenu>
-							<DropdownMenuTrigger asChild>
-								<Button
-									variant="outline"
-									className="w-[30vw] lg:w-[13vw] h-full shadow-none border-black text-xs uppercase"
-								>
-									{kategori}
-								</Button>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent className="w-56">
-								<DropdownMenuSeparator />
-								<DropdownMenuRadioGroup
-									value={kategori}
-									onValueChange={handleKategoriChange}
-								>
-									<DropdownMenuRadioItem value="all">
-										Semua
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="barang">
-										Barang
-									</DropdownMenuRadioItem>
-									<DropdownMenuRadioItem value="jasa">
-										Jasa
-									</DropdownMenuRadioItem>
-								</DropdownMenuRadioGroup>
-							</DropdownMenuContent>
-						</DropdownMenu>
+						<div className="flex items-center gap-[1.5vw]">
+							<p className="text-xs ">Kategori : </p>
+							<DropdownMenu>
+								<DropdownMenuTrigger asChild>
+									<Button
+										variant="outline"
+										className="w-[30vw] lg:w-auto h-full  shadow-none border-black text-xs uppercase"
+									>
+										{kategori}
+									</Button>
+								</DropdownMenuTrigger>
+								<DropdownMenuContent className="w-56">
+									<DropdownMenuSeparator />
+									<DropdownMenuRadioGroup
+										value={kategori}
+										onValueChange={handleKategoriChange}
+									>
+										<DropdownMenuRadioItem value="all">
+											Semua
+										</DropdownMenuRadioItem>
+										<DropdownMenuRadioItem value="barang">
+											Barang
+										</DropdownMenuRadioItem>
+										<DropdownMenuRadioItem value="jasa">
+											Jasa
+										</DropdownMenuRadioItem>
+									</DropdownMenuRadioGroup>
+								</DropdownMenuContent>
+							</DropdownMenu>
+						</div>
 					</div>
 				</div>
 
