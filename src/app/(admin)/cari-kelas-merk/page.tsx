@@ -62,7 +62,7 @@ export default function CariKelas() {
 		setLoading(true);
 		try {
 			const response = await axios.get(
-				`${ROOT_API}/kelas?search_query=${keyword}&page=${page}&limit=${limit}&kategori=${kategori}`
+				`https://nus-patent.vercel.app/api/kelas?search_query=${keyword}&page=${page}&limit=${limit}&kategori=${kategori}`
 			);
 
 			// const data1 = response.data.result.filter((item:any) => item.kelas >= 35 && item.kelas <= 45);
@@ -122,7 +122,7 @@ export default function CariKelas() {
 		<div className="w-full  flex">
 			<div className="mt-[7vh]">
 				<div className="px-[10vw]">
-					<h1 className="text-3xl mont lg:text-left text-center mb-[3vh] lg:mb-[0vw]">
+					<h1 className="text-2xl mont lg:text-left text-center mb-[3vh] lg:mb-[0vw]">
 						<span className="font-bold  text-primary">Cari Klasifikasi</span>{" "}
 						Untuk Merek Anda!
 					</h1>
@@ -147,8 +147,8 @@ export default function CariKelas() {
 							Cari Kelas
 						</button>
 					</form>
-					<div className="mt-[6vh] lg:mt-[3vw] flex items-center ">
-						<div className="flex items-center gap-[1.5vw]">
+					<div className="mt-[6vh] lg:mt-[3vw] lg:flex grid grid-cols-1 gap-y-7 items-center ">
+						<div className="flex items-center justify-between gap-[1.5vw]">
 							<p className="text-xs">Bahasa : </p>
 							<DropdownMenu>
 								<DropdownMenuTrigger asChild>
@@ -176,7 +176,7 @@ export default function CariKelas() {
 							</DropdownMenu>
 						</div>
 
-						<div className="flex items-center gap-[1.5vw]">
+						<div className="flex items-center justify-between gap-[1.5vw]">
 							<p className="text-xs ">Kategori : </p>
 							<DropdownMenu>
 								<DropdownMenuTrigger asChild>
@@ -209,7 +209,7 @@ export default function CariKelas() {
 					</div>
 				</div>
 
-				<div className="mt-[4vw]">
+				<div className="lg:mt-[4vw] mt-[10vw]">
 					<DataTable
 						columns={columnss}
 						data={data}
