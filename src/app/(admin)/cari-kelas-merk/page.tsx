@@ -124,7 +124,7 @@ export default function CariKelas() {
 				<div className="px-[10vw]">
 					<h1 className="text-3xl mont lg:text-left text-center mb-[3vh] lg:mb-[0vw]">
 						<span className="font-bold  text-primary">Cari Klasifikasi</span>{" "}
-						Untuk Merk Anda!
+						Untuk Merek Anda!
 					</h1>
 					<form
 						onSubmit={findData}
